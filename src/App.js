@@ -46,7 +46,7 @@ function App() {
     <section className='section-center'>
 
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert}/>}
+        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
         <h3>Grocery Buds</h3>
         <div className="form-control">
           <input type="text" className='grocery-control'
