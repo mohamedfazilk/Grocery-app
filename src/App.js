@@ -11,7 +11,21 @@ function App() {
   const [alert, setAlert] = useState({show: true, msg:'', type:'' }); // alert is an object showing these things
   const handleSubmit =(e)=>{
     e.preventDefault();
-    console.log("hiii");
+
+    if(!name){
+      //display alert
+    }
+    else if(name && isEditing){
+      //deal with edit
+    }
+
+    else{
+      //show alert
+      const newItem = {id: new Date().getTime().toString(),
+      title:name}
+      setList([...list, newItem])
+      setName('')
+    }
   }
 
   return(
