@@ -9,6 +9,7 @@ const Alert =({type,msg, removeAlert}) => {
         removeAlert();
     }, 3000)
       return () => {
+          clearTimeout(timeup)
       
       }
     }, [])
