@@ -9,7 +9,15 @@ const List = ({items}) => {
         const {id,title} = item;
         return(
         <article className='grocery-item' key={id}>
-            
+            <p className="title">{title}</p>
+            <div className="button-container">
+                <button type='button' className='edit-btn'>
+                    <FaEdit/>
+                </button>
+                <button type='button' className='delete-btn'>
+                    <FaTrash/>
+                </button>
+            </div>
         </article>
         )
 
