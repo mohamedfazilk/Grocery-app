@@ -9,8 +9,26 @@ function App() {
   const [isEditing, setIsEditing] = useState (false)
   const [editId, setEditId] = useState(null);
   const [alert, setAlert] = useState({show: false, msg:'', type:'' }); // alert is an object showing these things
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log("hiii");
+  }
 
-  return <section>ggh</section>
+  return(
+
+    <section className='section-center'>
+
+      <form className='grocery-form' onSubmit={handleSubmit}>
+
+      </form>
+
+        <div className="grocery-container">
+          <List/>
+          <button className='clear-btn'>Clear All</button>
+        </div>
+    
+    </section>
+    )
 }
 
 export default App;
