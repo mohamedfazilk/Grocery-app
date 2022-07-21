@@ -17,8 +17,8 @@ function App() {
     e.preventDefault();
 
     if(!name){
-      //display alert
-      setAlert({show:true, msg:'please enter the value' , type:'success'})
+      //display alert by using showAlert(by replacing setAlert)
+      showAlert(true, 'danger', 'please enter the value')
     }
     else if(name && isEditing){
       //deal with edit
@@ -30,9 +30,15 @@ function App() {
       title:name}
       setList([...list, newItem])
       setName('')
+      setAlert({show:true, msg:'Your value is added' , type:'success'})
     }
   }
 
+    //separate function for easy access of alert, then passing attributes into setAlert  
+    const showAlert = (show = false, type='', msg='')=>{
+      setAlert({show,type,msg})
+
+    }
   
 
   return(
