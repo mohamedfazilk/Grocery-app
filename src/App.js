@@ -46,10 +46,14 @@ function App() {
         </div>
       </form>
 
+      {list.length > 0 &&(
         <div className="grocery-container">
           <List items ={list}/>
           <button className='clear-btn'>Clear All</button>
         </div>
+
+      )}
+
     
     </section>
     )
