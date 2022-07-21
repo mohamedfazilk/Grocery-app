@@ -23,6 +23,8 @@ function App() {
         <h3>Grocery Buds</h3>
         <div className="form-control">
           <input type="text" />
+          <button type='submit' className='submit-btn'>
+            {isEditing ? 'edit':'submit'}</button>
         </div>
       </form>
 
