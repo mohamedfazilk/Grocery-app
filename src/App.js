@@ -22,7 +22,11 @@ function App() {
         {alert.show && <Alert/>}
         <h3>Grocery Buds</h3>
         <div className="form-control">
-          <input type="text" />
+          <input type="text" className='grocery-control'
+          placeholder='e.g. eggs' value={name}
+          onChange={(e)=>{
+            setName(e.target.value);
+          }}/>
           <button type='submit' className='submit-btn'>
             {isEditing ? 'edit':'submit'}</button>
         </div>
