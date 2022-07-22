@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import List from './List';
 import Alert from './Alert';
+
+const getLocalstorage = () =>{
+  let list = localStorage.getItem('list');
+  if(list){
+    return JSON.parse(localStorage.getItem('list'))
+  }
+  return []
+}
 
 function App() {
   
   const [name, setName] = useState('')
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalstorage());
   const [isEditing, setIsEditing] = useState (false)
   const [editId, setEditId] = useState(null);
   const [alert, setAlert] = useState({
@@ -25,9 +33,14 @@ function App() {
       setList(list.map((item)=>{
         if(item.id === editId){
           return {...item, title:name}
+         
         }
         return item
       }))
+      setName('')
+      setEditId(null)
+      setIsEditing(false)
+      showAlert(true, 'success', 'item hass been edited')
     }
 
     else{
@@ -66,6 +79,11 @@ function App() {
       setEditId(id)
       setName(specificItem.title)
     }
+
+    //when we refreshing store the list values in local storage
+    useEffect(()=>{
+      localStorage.setItem('list', JSON.stringify(list))
+    },[list])
   
 
   return(
