@@ -1,17 +1,17 @@
 import React from 'react'
 import {FaEdit, FaTrash} from 'react-icons/fa' 
 
-const List = ({items,removeItem}) => {
+const List = ({items,removeItem, editItem}) => {
   return (
       <div className="grocery-list">
-            <h2>List</h2>
+            
       {items.map((items)=>{
         const {id,title} = items;
         return(
         <article className='grocery-item' key={id}>
             <p className="title">{title}</p>
             <div className="button-container">
-                <button type='button' className='edit-btn'>
+                <button type='button' className='edit-btn' onClick={()=>editItem(id)}>
                     <FaEdit/>
                 </button>
                 <button type='button' className='delete-btn' onClick={()=>removeItem(id)}>

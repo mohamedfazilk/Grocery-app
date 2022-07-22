@@ -52,6 +52,14 @@ function App() {
       showAlert(true, 'danger', 'item has been deleted')
       setList(list.filter((item) => item.id !== id))
     }
+
+    //editing the item in the list by checking item(id) and editing id is same
+    const editItem = (id) =>{
+     const specificItem = list.find((item)=>item.id === id);
+     setIsEditing(true)
+      setEditId(id)
+      setName(specificItem.title)
+    }
   
 
   return(
@@ -78,7 +86,8 @@ function App() {
 
       {list.length > 0 &&(
         <div className="grocery-container">
-          <List items ={list} removeItem={removeItem}/>
+          <List items ={list} removeItem={removeItem}
+          editItem={editItem}/>
           <button className='clear-btn'
           onClick={clearAll}
           >Clear All</button>
