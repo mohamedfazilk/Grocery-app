@@ -40,9 +40,17 @@ function App() {
       setAlert({show,type,msg})
     }
 
+    //clearing all items in the list    
     const clearAll = ()=>{
       showAlert(true, 'danger', 'empty list')
       setList([])
+    }
+
+
+    //removing the single items in the list
+    const removeItem =(id)=>{
+      showAlert(true, 'danger', 'item has been deleted')
+      setList(list.filter((item) => item.id !== id))
     }
   
 
@@ -51,8 +59,11 @@ function App() {
     <section className='section-center'>
 
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}  {/* //passing showAlert as aprop into */}
-                                                                      {/* Alert component */}
+        {alert.show && <Alert {...alert}
+       list={list} removeAlert={showAlert}    //passing showAlert as aprop into  Alert component 
+       //  passing list as a prop into Alert component    
+       list={list}/>}                      
+                                                                  
         <h3>Grocery Buds</h3>
         <div className="form-control">
           <input type="text" className='grocery-control'
@@ -67,7 +78,7 @@ function App() {
 
       {list.length > 0 &&(
         <div className="grocery-container">
-          <List items ={list}/>
+          <List items ={list} removeItem={removeItem}/>
           <button className='clear-btn'
           onClick={clearAll}
           >Clear All</button>

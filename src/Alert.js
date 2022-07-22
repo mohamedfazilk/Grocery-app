@@ -1,7 +1,7 @@
 
 import React, {useEffect} from 'react'
 
-const Alert =({type,msg, removeAlert}) => {
+const Alert =({type,msg, removeAlert, list}) => {
 
  useEffect(() => {
 
@@ -12,7 +12,7 @@ const Alert =({type,msg, removeAlert}) => {
           clearTimeout(timeup)
       
       }
-    }, [])
+    }, [list])
     
   return (
     <p className={`alert alert-${type}`}>{msg}</p>
