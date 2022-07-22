@@ -22,6 +22,12 @@ function App() {
     }
     else if(name && isEditing){
       //deal with edit
+      setList(list.map((item)=>{
+        if(item.id === editId){
+          return {...item, title:name}
+        }
+        return item
+      }))
     }
 
     else{
