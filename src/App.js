@@ -92,10 +92,10 @@ function App() {
 
       <form className='grocery-form' onSubmit={handleSubmit}>
         {alert.show && <Alert {...alert}
-       list={list} removeAlert={showAlert}    //passing showAlert as aprop into  Alert component 
-       //  passing list as a prop into Alert component    
-       list={list}/>}                      
-                                                                  
+        removeAlert={showAlert} list={list}/>}    
+       {/* //passing showAlert as aprop into  Alert component 
+       //  passing list as a prop into Alert component                      
+                                                                   */}
         <h3>Grocery Buds</h3>
         <div className="form-control">
           <input type="text" className='grocery-control'
