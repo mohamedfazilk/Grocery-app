@@ -44,11 +44,12 @@ function App() {
     }
 
     else{
+
       //show alert
       const newItem = {id: new Date().getTime().toString(),
       title:name}
-      showAlert(true,'success', 'Your item is successfully added')
-      setList([...list, newItem])
+      showAlert(true,'success', 'Your item is successfully added');
+      setList([...list, newItem]);
       setName('')
    
     }
@@ -61,8 +62,8 @@ function App() {
 
     //clearing all items in the list    
     const clearAll = ()=>{
-      showAlert(true, 'danger', 'empty list')
-      setList([])
+      showAlert(true, 'danger', 'empty list');
+      setList([]);
     }
 
 
@@ -91,12 +92,13 @@ function App() {
     <section className='section-center'>
 
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert}
-        removeAlert={showAlert} list={list}/>}    
+        {alert.show && <Alert {...alert} 
+        removeAlert={showAlert} list={list}/>}  
+
        {/* //passing showAlert as aprop into  Alert component 
        //  passing list as a prop into Alert component                      
                                                                    */}
-        <h3>Grocery Buds</h3>
+        <h3>Todo App</h3>
         <div className="form-control">
           <input type="text" className='grocery-control'
           placeholder='e.g. eggs' value={name}
